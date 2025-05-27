@@ -1,0 +1,145 @@
+name: data-analysis-agent
+version: 1.0.0
+description: "Veri Tablolu Sorgulama ve Yorumlama için MCP Server - CSV, Excel ve JSON dosyalarını analiz eder"
+
+# MCP Server konfigürasyonu
+mcp:
+  server:
+    name: "Data Analysis Agent"
+    description: "Veri analisti MCP server'ı - tablolu verileri analiz eder ve soruları yanıtlar"
+    version: "1.0.0"
+    
+  # Araçlar (Tools)
+  tools:
+    - name: "load_data"
+      description: "CSV, Excel veya JSON formatında veri dosyası yükler"
+      category: "data-loading"
+      
+    - name: "analyze_data"
+      description: "Yüklü veri üzerinde analiz yapar ve soruları yanıtlar"
+      category: "data-analysis"
+      
+    - name: "get_data_info"
+      description: "Yüklü verinin genel bilgilerini döndürür"
+      category: "data-info"
+      
+    - name: "filter_data"
+      description: "Veriyi belirli kriterlere göre filtreler"
+      category: "data-filtering"
+      
+    - name: "calculate_statistics"
+      description: "Sayısal sütunlar için istatistiksel hesaplamalar yapar"
+      category: "statistics"
+      
+    - name: "group_analysis"
+      description: "Veriyi gruplara ayırarak analiz yapar"
+      category: "data-grouping"
+
+  # Kaynaklar (Resources)
+  resources:
+    - name: "current-dataset"
+      description: "Şu anda yüklü olan veri seti"
+      type: "data"
+      
+    - name: "data-summary"
+      description: "Veri seti özet bilgileri"
+      type: "summary"
+
+# Deployment konfigürasyonu
+deployment:
+  type: "mcp-server"
+  protocol: "stdio"
+  command: "python"
+  args: ["server.py"]
+  
+  # Çevre değişkenleri
+  environment:
+    - name: "PYTHONPATH"
+      value: "/app"
+    - name: "LOG_LEVEL"
+      value: "INFO"
+
+# Metadata
+metadata:
+  author: "Data Analysis Team"
+  license: "MIT"
+  
+  # Etiketler
+  tags:
+    - "data-analysis"
+    - "csv"
+    - "excel"
+    - "json"
+    - "statistics"
+    - "turkish"
+    - "mcp-server"
+    
+  # Kategoriler
+  categories:
+    - "Data Analysis"
+    - "Business Intelligence"
+    - "Statistics"
+
+# Özellikler
+features:
+  - "CSV, Excel ve JSON dosya desteği"
+  - "Türkçe dil desteği"
+  - "İstatistiksel analiz"
+  - "Veri filtreleme ve gruplama"
+  - "Otomatik veri tipi tespiti"
+  - "Eksik değer analizi"
+  - "MCP Protocol desteği"
+
+# Kullanım örnekleri
+examples:
+  - title: "Veri Yükleme"
+    description: "CSV dosyası yükleyip analiz etme"
+    code: |
+      # MCP client ile veri yükleme
+      await client.call_tool("load_data", {
+        "file_path": "sales_data.csv"
+      })
+      
+      # Genel bilgi alma
+      await client.call_tool("get_data_info", {})
+      
+  - title: "İstatistiksel Analiz"
+    description: "Sayısal verilerin istatistiklerini hesaplama"
+    code: |
+      # Ortalama hesaplama
+      await client.call_tool("calculate_statistics", {
+        "operation": "mean"
+      })
+      
+      # Belirli sütunlar için toplam
+      await client.call_tool("calculate_statistics", {
+        "columns": ["sales", "profit"],
+        "operation": "sum"
+      })
+      
+  - title: "Veri Filtreleme"
+    description: "Belirli kriterlere göre veri filtreleme"
+    code: |
+      # Satış değeri 1000'den büyük olanlar
+      await client.call_tool("filter_data", {
+        "column": "sales",
+        "operator": ">",
+        "value": 1000
+      })
+
+# Gereksinimler
+requirements:
+  python: ">=3.11"
+  memory: "512MB"
+  cpu: "0.5"
+  
+# Güvenlik
+security:
+  permissions:
+    - "read:files"
+    - "process:data"
+  
+  data_handling:
+    - "Veriler geçici olarak bellekte tutulur"
+    - "Hassas bilgiler loglanmaz"
+    - "Kullanıcı verileri üçüncü taraflarla paylaşılmaz" 

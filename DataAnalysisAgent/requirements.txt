@@ -1,0 +1,20 @@
+# MCP (Model Context Protocol) bağımlılıkları
+mcp>=1.0.0
+pydantic>=2.0.0
+
+# Veri işleme kütüphaneleri
+pandas>=2.0.0
+numpy>=1.24.0
+openpyxl>=3.1.0  # Excel dosyaları için
+
+# Web server (opsiyonel)
+fastapi>=0.100.0
+uvicorn>=0.23.0
+requests>=2.31.0
+
+# Logging ve utilities
+python-multipart>=0.0.6
+python-dateutil>=2.8.0
+
+# Güvenlik
+cryptography>=41.0.0 
