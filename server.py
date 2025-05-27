@@ -14,7 +14,7 @@ from typing import Any, Dict, List, Optional, Sequence
 import pandas as pd
 import numpy as np
 from mcp.server import Server
-from mcp.server.models import InitializationOptions, NotificationOptions
+from mcp.server.models import InitializationOptions
 from mcp.server.stdio import stdio_server
 from mcp.types import (
     Resource,
@@ -645,10 +645,7 @@ async def main():
                 server_name="data-analysis-agent",
                 server_version="1.0.0",
                 capabilities=server.get_capabilities(
-                    notification_options=NotificationOptions(
-                        tools_changed=False,
-                        resources_changed=False
-                    ),
+                    notification_options=None,
                     experimental_capabilities={}
                 )
             )
