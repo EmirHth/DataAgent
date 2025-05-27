@@ -644,10 +644,7 @@ async def main():
             InitializationOptions(
                 server_name="data-analysis-agent",
                 server_version="1.0.0",
-                capabilities=server.get_capabilities(
-                    notification_options=None,
-                    experimental_capabilities={}
-                )
+                capabilities=server.get_capabilities()
             )
         )
 

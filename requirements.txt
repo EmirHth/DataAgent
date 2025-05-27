@@ -1,36 +1,12 @@
-# MCP Server dependencies
-mcp>=1.0.0,<2.0.0
-anyio>=4.0.0
-httpx>=0.25.0
-pydantic>=2.0.0
+# MCP Server core dependencies
+mcp
+pydantic
+anyio
 
 # Data processing
-pandas>=2.0.0
-numpy>=1.24.0
-openpyxl>=3.1.0
+pandas
+numpy
+openpyxl
 
-# Security and validation
-python-multipart>=0.0.6
-pydantic-settings>=2.0.0
-
-# Optional: For enhanced data processing
-scikit-learn>=1.3.0
-matplotlib>=3.7.0
-seaborn>=0.12.0
-
-# Development
-pytest>=7.4.0
-pytest-asyncio>=0.21.0
-black>=23.0.0
-flake8>=6.0.0
-
-# Web server (opsiyonel)
-fastapi>=0.100.0
-uvicorn>=0.23.0
-requests>=2.31.0
-
-# Logging ve utilities
-python-dateutil>=2.8.0
-
-# Güvenlik
-cryptography>=41.0.0 
+# Basic utilities
+python-dateutil 
