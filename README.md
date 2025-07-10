@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/emirhth-dataagent-badge.png)](https://mseep.ai/app/emirhth-dataagent)
+
 # 🤖 DataAgent - AI Veri Analizi Sistemi
 
 Bu proje, MCP (Model Context Protocol) tabanlı veri analizi AI agent'ı içerir.
